@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.use(errorMiddleware);
 
-const PORT = process.env.APP_PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
