@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8000/api/cars',
+  baseURL: `${BACKEND_URL}/api/cars`,
 });
 
 export default API;
