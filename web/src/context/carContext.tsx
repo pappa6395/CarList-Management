@@ -1,4 +1,3 @@
-// src/context/CarsContext.tsx
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import API from '../api/carApi';
 import { Car } from '../lib/types';
@@ -26,7 +25,7 @@ export const CarsProvider = ({ children }: { children: ReactNode }) => {
     try {
       setLoading(true);
       setError(null);
-      const res = await API.get('/'); // Your API endpoint
+      const res = await API.get('/');
       setCars(res.data);
       setFilteredCars(res.data);
     } catch (err) {

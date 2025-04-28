@@ -68,15 +68,15 @@ const CarList = () => {
 
 
   const confirmDeleteCar = (id: string) => {
-    setSelectedCarId(id);   // Save car id
-    setShowModal(true);     // Just show the modal
+    setSelectedCarId(id);
+    setShowModal(true);
   };
 
 
   const handleDeleteCar = async (id: string) => {
     try {
       await API.delete(`/${id}`);
-      await refreshCars(); // Refresh data from context instead of local state
+      await refreshCars();
       toast.success('Car deleted successfully!');
     } catch (err) {
       console.error(err);
@@ -99,12 +99,11 @@ const CarList = () => {
     );
     setFilteredCars(filtered);
   };
-  // useMemo so debounce function isn't recreated every render
+
   const debouncedSearch = useMemo(() => debounce(handleSearch, 300), [cars]);
 
   useEffect(() => {
     debouncedSearch(searchQuery);
-    // cleanup: cancel previous debounce if typing fast
     return () => debouncedSearch.cancel();
   }, [searchQuery, debouncedSearch]);
 
@@ -135,7 +134,6 @@ const CarList = () => {
       </div>
     );
   }
-
 
   return (
     <div className="relative min-h-screen bg-gray-100">

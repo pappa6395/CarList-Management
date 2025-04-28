@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { HomeOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
-import { ListFilter } from 'lucide-react';
+import { ListFilter, Menu } from 'lucide-react';
 import { Car } from '../../lib/types';
 
 
@@ -27,18 +27,16 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
     { name: 'Add Car', path: '/add', icon: <PlusOutlined /> },
   ];
   
-  // Initialize filters state
   const [filters, setFilters] = useState<FiltersType>({
     brand: '',
     model: '',
     registrationNumber: '',
   });
 
-  // Create brand -> models mapping
   const [brandModelsMap, setBrandModelsMap] = useState<BrandModelsMap>({});
   const [brandRegNumMap, setBrandRegNumMap] = useState<BrandModelsMap>({});
 
-  // Initialize brand models map
+
   useEffect(() => {
     const bmMap: BrandModelsMap = {};
     const brMap: BrandModelsMap = {};
@@ -51,7 +49,6 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
         bmMap[car.brand].push(car.model);
       }
 
-      // Build Brand->registrationNumbers map
       if (!brMap[car.brand]) {
         brMap[car.brand] = [];
       }
@@ -64,7 +61,6 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
     setBrandRegNumMap(brMap);
   }, [cars]);
 
-  // Apply filters whenever they change
   useEffect(() => {
     const filteredCars = cars.filter(car => {
       return (
@@ -79,7 +75,6 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
   }, [filters, cars, onFilterChange]);
 
 
-  // Detect screen size
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -91,14 +86,13 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
       }
     };
 
-    handleResize(); // Run once at start
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleFilterChange = (field: keyof FiltersType, value: string) => {
     setFilters(prev => {
-      // If brand changes, reset model
       if (field === 'brand') {
         return {
           ...prev,
@@ -245,7 +239,7 @@ const Sidebar = ({ cars, onFilterChange }: { cars: Car[]; onFilterChange: (filte
           onClick={() => setIsOpen(true)}
           className="fixed top-4 left-4 z-50 bg-blue-600 text-white px-2 py-1.5 rounded-md shadow-md"
         >
-          ☰
+          <Menu />
         </button>
       )}
     </>

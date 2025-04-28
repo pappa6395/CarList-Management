@@ -19,29 +19,7 @@ DEMO Website: https://carlistmanageapp.netlify.app/
 
 🏛️ Project Structure
 
-CarList-management/
-├── api/                  # Backend
-│   ├── controllers/       # Business logic (CRUD operations)
-│   ├── models/            # Mongoose models (Car schema)
-│   ├── routes/            # API routes (cars API)
-|   ├── dtos/              # Validation
-│   ├── middlewares/       # Error handlers and utilities
-│   ├── seed/              # Database seeding scripts
-│   ├── server.js          # Express server setup
-│   └── package.json
-├── web/                   # Frontend (Vite + React + TS)
-│   ├── src/
-│   │   ├── components/    # Navbar, Sidebar, Cards, Filters, Forms
-│   │   ├── context/       # Global context (filters, pagination, view modes)
-│   │   ├── pages/         # Car List, Add Car, Edit Car pages
-│   │   ├── api/           # API calls
-│   │   ├── lib/           # types
-│   │   ├── App.tsx
-│   │   └── main.tsx
-│   └── package.json
-├── README.md
-└── .env.example           # Environment variable example
-
+![Project Structure](./web/public/project%20structure.png)
 
 🛠️ System Design
 Frontend:
@@ -62,6 +40,8 @@ Deployment-ready:
 - Environment variables for flexible MongoDB URI
 - Production build scripts
 - Flexible seed data script
+
+![Sysmtem Design](./web/public/system%20design.png)
 
 🧩 Installation
 
@@ -101,22 +81,7 @@ PORT=8000
 
 🚗 Car Model (Professional Car Information)
 
-Field	            Type	    Required	Description
-brand	            String	        ✅	    Car brand (e.g., Toyota)
-model	            String	        ✅	    Car model (e.g., Camry)
-year	            Number	        ✅	    Manufacture year
-color	            String	        ✅	    Color
-registrationNumber	String	        ✅	    License plate number
-vin	                String	        ✅	    Vehicle Identification Number
-mileage	            Number	        ✅	    Mileage in km
-fuelType	        String	        ✅	    Fuel type (Petrol, Diesel, EV, Hybrid)
-transmission	    String	        ✅	    Transmission type (Auto, Manual)
-rentalPricePerDay	Number	        ✅	    Price per day (฿)
-availability	    Boolean     	✅	    Availability status
-location	        String	        ✅	    Car location
-imageUrl	        String	        ❌	    (Optional) Car image URL
-notes	            String	        ❌	    (Optional) Notes
-
+![Car Model](./web//public/Carlist%20model.png)
 
 🔥 Seed Data
 Run this command to populate testing data:
@@ -138,6 +103,7 @@ It will create a few sample cars for testing purposes.
 - Sorting and advanced filtering
 - Booking system (for rental)
 
+![Diagram Summary](./web//public/summary%20diagram.png)
 
 👨‍💻 Developed By
 
