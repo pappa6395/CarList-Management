@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { BACKEND_URL } from '../config';
+import { VITE_BACKEND_URL } from '../config';
 
 const API = axios.create({
-  baseURL: `${BACKEND_URL}/api/cars`,
+  baseURL: `${VITE_BACKEND_URL}/api/cars`,
 });
 
 export default API;

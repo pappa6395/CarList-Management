@@ -1,2 +1,2 @@
 
-export const BACKEND_URL = process.env.BACKEND_URL!
+export const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL!
