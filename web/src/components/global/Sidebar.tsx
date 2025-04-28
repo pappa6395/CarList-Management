@@ -2,17 +2,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { HomeOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { ListFilter } from 'lucide-react';
+import { Car } from '../../lib/types';
 
 
-// Define types
-export type Car = {
-    _id: string;
-    brand: string;
-    model: string;
-    registrationNumber: string;
-    notes: string;
-};
-  
+
 export type FiltersType = {
     brand: string;
     model: string;
