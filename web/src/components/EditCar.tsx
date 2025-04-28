@@ -70,6 +70,7 @@ const EditCar = () => {
         });
         toast.success('Car updated successfully!');
         navigate('/');
+        window.location.reload();
       } catch (err) {
         console.error(err);
         toast.error('Failed to update car. Please try again.');
@@ -92,7 +93,7 @@ const EditCar = () => {
                 damping: 8,
             }}
         >
-            <div className='flex items-start justify-start pb-4 md:w-4xl w-xl'>
+            <div className='flex items-start justify-start pb-4 sm:w-4xl w-sm'>
                 <button 
                     onClick={() => navigate('/')} 
                     className="text-blue-500 hover:underline text-lg 

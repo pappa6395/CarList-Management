@@ -155,13 +155,15 @@ const CarList = () => {
             type="text"
             placeholder="Search cars..."
             className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:border-blue-500"
-            onChange={(e) => debouncedSearch(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           {searchQuery && (
             <button
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
-              onClick={() => setSearchQuery('')}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-300 hover:text-gray-600 focus:outline-none"
+              onClick={() => setSearchQuery("")}
             >
+
               <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -271,11 +273,11 @@ const CarList = () => {
               <thead className="bg-gray-100">
                 <tr>
                   <th className="px-6 py-3 text-sm font-medium text-gray-600">Brand</th>
+                  <th className="hidden sm:grid px-6 py-3 text-sm font-medium text-gray-600">Registration</th>
                   <th className="px-6 py-3 text-sm font-medium text-gray-600">Model</th>
-                  <th className="px-6 py-3 text-sm font-medium text-gray-600">Registration</th>
-                  <th className="hidden md:block px-6 py-3 text-sm font-medium text-gray-600">Notes</th>
+                  <th className="hidden md:grid px-10 py-3 text-sm font-medium text-gray-600">Notes</th>
                   <th className="px-6 py-3 text-sm font-medium text-gray-600">View</th>
-                  <th className="hidden sm:block px-6 py-3 text-sm font-medium text-gray-600">Actions</th>
+                  <th className="hidden md:grid px-6 py-3 text-sm font-medium text-gray-600">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -289,9 +291,9 @@ const CarList = () => {
                       className="border-t hover:bg-gray-50"
                     >
                       <td className="px-6 py-4">{car.brand}</td>
+                      <td className="hidden sm:grid px-6 py-4">{car.registrationNumber}</td>
                       <td className="px-6 py-4">{car.model}</td>
-                      <td className="px-6 py-4">{car.registrationNumber}</td>
-                      <td className="hidden md:block px-6 py-4">{car.notes}</td>
+                      <td className="hidden md:grid px-10 py-4">{car.notes}</td>
                       <td className="px-6 py-4">
                         <Link to={`/cardetail/${car._id}`}>
                           <button className="text-blue-500 hover:underline text-sm cursor-pointer">
@@ -299,7 +301,7 @@ const CarList = () => {
                           </button>
                         </Link>
                       </td>
-                      <td className="hiden sm:block px-6 py-4 flex gap-2">
+                      <td className="hidden px-6 py-4 md:flex gap-2">
                         <div className="flex justify-end gap-4">
                           <Link to={`/edit/${car._id}`}>
                             <button className="text-blue-500 hover:underline text-sm cursor-pointer">

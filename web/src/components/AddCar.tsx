@@ -84,7 +84,7 @@ const AddCar = () => {
           damping: 8,
         }}
       >
-        <div className='flex items-start justify-start pb-4 w-xl md:w-[900px]'>
+        <div className='flex items-start justify-start pb-4 w-sm sm:w-[900px]'>
           <button 
             onClick={() => navigate('/')} 
             className="text-blue-500 hover:underline text-lg flex items-center gap-2"
